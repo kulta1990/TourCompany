@@ -1,5 +1,6 @@
 import React from 'react'
 import Title from './Title'
+import { tours } from '../data'
 
 const Tours = () => {
   return (
@@ -12,7 +13,39 @@ const Tours = () => {
   </div>*/}
 
       <div className="section-center featured-center">
-        <article className="tour-card">
+
+        {tours.map((value) => {
+
+          const { img, p1, h4, p2, p3, p4, p5 } = value;
+          return (
+            <article className="tour-card">
+              <div className="tour-img-container">
+                <img src={img} className="tour-img" alt="" />
+                <p className="tour-date">{p1}</p>
+              </div>
+              <div className="tour-info">
+                <div className="tour-title">
+                  <h4>{h4}</h4>
+                </div>
+                <p>
+                  {p2}
+                </p>
+                <div className="tour-footer">
+                  <p>
+                    <span><i className="fas fa-map"></i></span> {p3}
+                  </p>
+                  <p>{p4}</p>
+                  <p>{p5}</p>
+                </div>
+              </div>
+            </article>
+          )
+
+        })}
+
+
+
+        {/*  <article className="tour-card">
           <div className="tour-img-container">
             <img src="./images/tour-1.jpeg" className="tour-img" alt="" />
             <p className="tour-date">august 26th, 2020</p>
@@ -101,6 +134,9 @@ const Tours = () => {
             </div>
           </div>
         </article>
+      */}
+
+
       </div>
     </section>
 
